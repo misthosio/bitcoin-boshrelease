@@ -1,0 +1,7 @@
+---
+- type: replace
+  path: /releases/name=bitcoin
+  value:
+    name: bitcoin
+    version: create
+    url: file://.
