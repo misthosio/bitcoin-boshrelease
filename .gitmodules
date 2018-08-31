@@ -1,3 +1,0 @@
-[submodule "src/bitcoin"]
-	path = src/bitcoin
-	url = https://github.com/bitcoin/bitcoin
