@@ -1,6 +1,6 @@
 ---
 name: bitcoin
-packages: []
+packages: [bitcoin]
 templates:
   ignoreme: ignoreme
 properties: {}

@@ -1,0 +1,14 @@
+---
+name: bitcoin
+dependencies: []
+
+files:
+- autoconf-2.69.tar.xz
+- automake-1.16.tar.xz
+- pkg-config-0.29.2.tar.gz
+- libtool-2.4.6.tar.gz
+- bdb-4.8.tar.gz
+- boost.1.66.0.tar.gz
+- libevent-2.0.22-stable.tar.gz
+- libressl-2.4.4.tar.gz
+- bitcoin-0.16.2.tar.gz

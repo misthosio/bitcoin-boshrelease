@@ -4,3 +4,7 @@ blobstore:
   options:
     bucket_name: bitcoin-boshrelease
 final_name: bitcoin
+blobstore:
+  provider: local
+  options:
+    blobstore_path: final_blobs

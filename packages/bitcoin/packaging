@@ -1,0 +1,73 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Detect # of CPUs so make jobs can be parallelized
+CPUS=$(grep -c ^processor /proc/cpuinfo)
+ # Available variables
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+export PATH=$PATH:${BOSH_INSTALL_TARGET}/bin
+
+tar xf autoconf-2.69.tar.xz
+pushd autoconf-2.69
+  autoconf_dir=$BOSH_INSTALL_TARGET/share/autoconf ./configure --prefix=$BOSH_INSTALL_TARGET
+  make -j$CPUS && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar xf automake-1.16.tar.xz
+pushd automake-1.16
+  ./configure --prefix=$BOSH_INSTALL_TARGET
+  make -j$CPUS && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf pkg-config-0.29.2.tar.gz
+pushd pkg-config-0.29.2
+  ./configure --prefix=$BOSH_INSTALL_TARGET --with-internal-glib
+  make -j${CPUS} && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf libtool-2.4.6.tar.gz
+pushd libtool-2.4.6
+  ./configure --prefix=$BOSH_INSTALL_TARGET
+  make -j${CPUS} && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf bdb-4.8.tar.gz
+pushd db-4.8.30.NC/build_unix
+  ../dist/configure --prefix=$BOSH_INSTALL_TARGET \
+      --enable-compat185 \
+      --enable-cxx \
+      --enable-dbm \
+      --enable-stl
+  make -j${CPUS} && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf libressl-2.4.4.tar.gz
+pushd libressl-2.4.4
+  ./configure --prefix=$BOSH_INSTALL_TARGET
+  make -j$CPUS && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf libevent-2.0.22-stable.tar.gz
+pushd libevent-2.0.22-stable
+  ./configure --prefix=$BOSH_INSTALL_TARGET
+  make -j$CPUS && make install prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf boost.1.66.0.tar.gz
+pushd boost_1_66_0
+  ./bootstrap.sh --prefix=$BOSH_INSTALL_TARGET
+  ./b2 install --prefix=$BOSH_INSTALL_TARGET
+popd
+
+tar -xzf bitcoin-0.16.2.tar.gz
+pushd bitcoin-0.16.2
+  ./autogen.sh
+  ./configure CPPFLAGS="-I${BOSH_INSTALL_TARGET}/include -O2" \
+  LDFLAGS="-L${BOSH_INSTALL_TARGET}/lib" \
+  --prefix=$BOSH_INSTALL_TARGET \
+  --with-incompatible-bdb \
+  --with-boost=$BOSH_INSTALL_TARGET/include/boost \
+  --with-boost-libdir=$BOSH_INSTALL_TARGET/lib
+  make -j${CPUS} && make install prefix=$BOSH_INSTALL_TARGET
+popd

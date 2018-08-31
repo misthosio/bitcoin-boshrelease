@@ -1,1 +1,27 @@
---- {}
+autoconf-2.69.tar.xz:
+  size: 1214744
+  sha: e891c3193029775e83e0534ac0ee0c4c711f6d23
+automake-1.16.tar.xz:
+  size: 1534632
+  sha: 86b9054e6923f99262fb845a375e02102f736132
+bdb-4.8.tar.gz:
+  size: 22842330
+  sha: ff754f92ccfae2f9d3527d6d6ea43add5b852456
+bitcoin-0.16.2.tar.gz:
+  size: 6655047
+  sha: 5199579379d7b5020f8d3f50f56bc1e0caf904c0
+boost.1.66.0.tar.gz:
+  size: 101669839
+  sha: f0b20d2d9f64041e8e7450600de0267244649766
+libevent-2.0.22-stable.tar.gz:
+  size: 854987
+  sha: a586882bc93a208318c70fc7077ed8fca9862864
+libressl-2.4.4.tar.gz:
+  size: 3014463
+  sha: 5daaf33f5cc382e1c9dd7375a67e26aad1d0b2ed
+libtool-2.4.6.tar.gz:
+  size: 1806697
+  sha: 25b6931265230a06f0fc2146df64c04e5ae6ec33
+pkg-config-0.29.2.tar.gz:
+  size: 2016830
+  sha: 76e501663b29cb7580245720edfb6106164fad2b
