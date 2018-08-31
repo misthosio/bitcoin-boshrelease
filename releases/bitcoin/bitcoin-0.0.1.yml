@@ -1,0 +1,19 @@
+name: bitcoin
+version: 0.0.1
+commit_hash: ""
+uncommitted_changes: false
+jobs:
+- name: bitcoin
+  version: b0fe82557278d8b34ea2e0afad7b84df005ee9e1
+  fingerprint: b0fe82557278d8b34ea2e0afad7b84df005ee9e1
+  sha1: 9544e9167a976182f10343cdc6c52cb19c09d0cf
+packages:
+- name: bitcoin
+  version: 8bf0b91640ec87b71d029a87b424d3e432c11dd2
+  fingerprint: 8bf0b91640ec87b71d029a87b424d3e432c11dd2
+  sha1: 5d65f4a2c48c9ef7788f239aa6f9d4c6d8509ae8
+  dependencies: []
+license:
+  version: 09bc7bdf360a0c6420675a4d509bd0fbe941f4ce
+  fingerprint: 09bc7bdf360a0c6420675a4d509bd0fbe941f4ce
+  sha1: 3561c913c5c9f575c24ce7e731fe52c21ed53a41
